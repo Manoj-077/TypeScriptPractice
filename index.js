@@ -1,4 +1,19 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 exports.__esModule = true;
 var ms = "hola1";
 var b = 10;
@@ -84,15 +99,67 @@ var p1 = new Person1('earth', 50);
 //console.log(p1.fn());
 //console.log(typeof(p1));
 var Cars = /** @class */ (function () {
-    function Cars(n, y, f) {
-        this.name = n;
-        this.year = y;
-        this.fuel = f;
+    function Cars(name, year, fuel) {
+        this.name = name;
+        this.year = year;
+        this.fuel = fuel;
+        this.name = name;
+        this.year = year;
+        this.fuel = fuel;
     }
     Cars.prototype.details = function () {
         return "this is a ".concat(this.name, " car of ").concat(this.year, " model fueled by ").concat(this.fuel);
     };
     return Cars;
 }());
-var obj = new Cars("supra", 2000, "diesel");
-console.log(obj.details());
+var obj = new Cars("s-class", 2022, "electric");
+var Brand = /** @class */ (function (_super) {
+    __extends(Brand, _super);
+    function Brand(bn, ca, cn) {
+        var _this = _super.call(this, obj.name, obj.year, obj.fuel) || this;
+        _this.brandName = bn;
+        _this.countryAge = ca;
+        _this.countryName = cn;
+        return _this;
+    }
+    return Brand;
+}(Cars));
+var obj1 = new Brand("BMW", 300, "germany");
+console.log(obj1.countryName);
+var abc = {
+    name: "hi",
+    age: 44,
+    show: function () {
+        return "hi";
+    }
+};
+//console.log(abc);
+//console.log(typeof(abc));
+function Man(name, age) {
+    this.name = name;
+    this.age = age;
+    this.show = function () {
+        return "hi";
+    };
+}
+var abc1 = new Man("bb", 30);
+var a1 = {
+    name: "dog",
+    diet: "omnivore",
+    lifespan: 12
+};
+console.log("interface section below");
+console.log(JSON.stringify(a1));
+console.log(typeof (a1));
+var Animal1 = /** @class */ (function () {
+    function Animal1(n, d, l) {
+        this.name = n;
+        this.diet = d;
+        this.lifespan = l;
+    }
+    return Animal1;
+}());
+console.log("class section below");
+var a2 = new Animal1("cat", "omni", 12);
+console.log(JSON.stringify(a2));
+console.log(typeof (a2));

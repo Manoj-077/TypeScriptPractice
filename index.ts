@@ -105,14 +105,11 @@ var p1 = new Person1('earth',50);
 //console.log(typeof(p1));
 
 class Cars{
-    name: string;
-    year: number;
-    fuel: string;
-    
-    constructor (n:string,y:number,f:string){
-        this.name = n;
-        this.year = y;
-        this.fuel = f;
+  
+    constructor (public name:string,public year:number,public fuel:string){
+        this.name = name;
+        this.year = year;
+        this.fuel = fuel;
     }
 
    details(){
@@ -120,7 +117,78 @@ class Cars{
    } 
 
 }
+let obj = new Cars("s-class",2022,"electric");
+class Brand extends Cars{
+    brandName: string;
+    countryAge : number;
+    countryName : string;
+    constructor(bn:string,ca:number,cn:string){
+        super(obj.name, obj.year , obj.fuel);
+        this.brandName = bn;
+        this.countryAge = ca;
+        this.countryName = cn;
+    }
+}
 
-let obj = new Cars("supra",2000,"diesel");
-console.log(obj.details());
+let obj1 = new Brand("BMW",300,"germany");
 
+console.log(obj1.countryName);
+
+interface Man{     //interface
+    name: string;
+    age : number;
+    show(): string;
+}
+
+let abc : Man = {  
+    name : "hi",
+    age : 44,
+    show: ()=>{
+        return "hi";
+    }
+}
+//console.log(abc);
+//console.log(typeof(abc));
+
+function Man(name:string,age:number){
+  this.name = name;
+  this.age = age;
+  this.show = function (){
+    return "hi"
+  }
+}
+let abc1 = new Man("bb",30)
+//console.log(abc1)
+//console.log(typeof(abc1))
+
+interface Animal{
+    name : string;
+    diet : string;
+    lifespan : number;
+}
+
+let a1:Animal = {
+    name : "dog",
+    diet: "omnivore",
+    lifespan : 12
+}
+console.log("interface section below")
+console.log(JSON.stringify(a1));
+console.log(typeof(a1));
+
+class Animal1{
+    name: string;
+    diet : string;
+    lifespan : number;
+    constructor (n:string, d:string,l:number){
+        this.name = n;
+        this.diet = d;
+        this.lifespan = l;
+        
+    }
+    
+}
+console.log("class section below")
+let a2 = new Animal1("cat","omni",12);
+console.log(JSON.stringify(a2));
+console.log(typeof(a2))
